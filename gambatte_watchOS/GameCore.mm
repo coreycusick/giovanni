@@ -91,7 +91,7 @@ public:
 //	updateTimer = [NSTimer scheduledTimerWithTimeInterval:interval target:self selector:@selector(runGameLoop) userInfo:nil repeats:YES];
 
 	videoBuffer = (uint32_t *)malloc(kScreenWidth * kScreenHeight * 4);
-	unusedBuffer = (uint32_t *)malloc(2064 * 2 * 4);
+	unusedBuffer = (uint32_t *)malloc(2048 * 2 * 4);
 	
 	_paused = NO;
 	gameCoreThread = [[NSThread alloc] initWithTarget:self selector:@selector(runGameLoop) object:nil];
@@ -110,8 +110,8 @@ public:
 		if (!gameCoreThread) {
 			return;
 		}
-
-		size_t samples = 2064;
+gb.setDmgPaletteColor(<#int palNum#>, <#int colorNum#>, <#unsigned long rgb32#>)
+		size_t samples = 1;
 
 		while (gb.runFor((gambatte::uint_least32_t *)videoBuffer, kScreenWidth,
 						 (gambatte::uint_least32_t *)unusedBuffer, samples) == -1 && !_paused) {

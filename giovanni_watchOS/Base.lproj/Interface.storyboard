@@ -1,62 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="21208.1" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7hZ-R3-GZe">
-    <device id="watch42"/>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="21507" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7hZ-R3-GZe">
+    <device id="watch44"/>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="21038"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="21501"/>
     </dependencies>
     <scenes>
         <!--GamePlay-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller identifier="GamePlay" id="AgC-eL-Hgc" customClass="GameplayController" customModule="giovanni_WatchKit_Extension">
+                <controller identifier="GamePlay" fullScreen="YES" id="AgC-eL-Hgc" customClass="GameplayController" customModule="giovanni_WatchKit_Extension">
                     <items>
-                        <spriteKitScene height="0.80000000000000004" alignment="left" preferredFramesPerSecond="60" id="ELq-fe-WSa">
+                        <group width="1" height="0.10000000000000001" alignment="left" id="DlX-FC-pli">
+                            <items>
+                                <label width="22" alignment="left" id="AD4-Ue-jSc"/>
+                                <button width="48" height="1" alignment="left" verticalAlignment="center" title="ST" id="78O-Gs-JrD">
+                                    <color key="titleColor" red="0.21454858779907227" green="0.13017362356185913" blue="0.054226450622081757" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="system" weight="black" pointSize="10"/>
+                                    <connections>
+                                        <action selector="startSelected" destination="AgC-eL-Hgc" id="p7L-NL-aSW"/>
+                                    </connections>
+                                </button>
+                                <button width="49" height="1" alignment="left" verticalAlignment="center" title="SL" id="gEn-fs-8B5">
+                                    <color key="titleColor" red="0.21454858779907227" green="0.13017362356185913" blue="0.054226450622081757" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="system" weight="black" pointSize="10"/>
+                                    <connections>
+                                        <action selector="selectSelected" destination="AgC-eL-Hgc" id="J5E-nW-oyX"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <spriteKitScene width="1" height="0.75" alignment="center" preferredFramesPerSecond="60" id="ELq-fe-WSa">
                             <gestureRecognizers>
                                 <panGestureRecognizer id="fON-GL-rsc">
                                     <connections>
                                         <action selector="panUpdated:" destination="AgC-eL-Hgc" id="ZVb-df-Eb3"/>
                                     </connections>
                                 </panGestureRecognizer>
-                                <tapGestureRecognizer id="dCs-LC-B2n">
+                                <tapGestureRecognizer numberOfTapsRequired="10" id="dCs-LC-B2n">
                                     <connections>
-                                        <action selector="tapUpdated:" destination="AgC-eL-Hgc" id="Mdf-ba-AUm"/>
+                                        <action selector="tapUpdated:" destination="AgC-eL-Hgc" id="E4P-a6-GwD"/>
                                     </connections>
                                 </tapGestureRecognizer>
+                                <longPressGestureRecognizer minimumPressDuration="3" id="pdk-sC-xcZ"/>
                             </gestureRecognizers>
-                            <variation key="device=watch44mm" heightAdjustment="0.0"/>
                         </spriteKitScene>
-                        <group width="1" height="0.20000000000000001" alignment="left" id="OfT-pQ-dwT">
+                        <group width="1" widthAdjustment="1" height="33" alignment="left" id="OfT-pQ-dwT">
                             <items>
-                                <group width="0.10000000000000001" height="1" alignment="left" layout="vertical" spacing="0.0" id="jHt-DP-AmP">
-                                    <items>
-                                        <label width="1" height="0.5" alignment="left" text="▶︎" textAlignment="center" id="cVh-ps-Gkz" userLabel="DPadLabel">
-                                            <fontDescription key="font" type="system" weight="heavy" pointSize="11"/>
-                                        </label>
-                                        <label width="1" height="0.5" alignment="left" text="A" textAlignment="center" id="e8e-tB-5Zv">
-                                            <fontDescription key="font" type="system" weight="heavy" pointSize="11"/>
-                                        </label>
-                                    </items>
-                                </group>
-                                <button width="0.20000000000000001" height="1" alignment="left" id="78O-Gs-JrD">
-                                    <string key="title">
-ST</string>
-                                    <fontDescription key="font" type="system" weight="black" pointSize="10"/>
+                                <button width="0.5" height="1" alignment="left" title="A" id="n5S-c4-nKk">
+                                    <color key="titleColor" red="0.21454858779907227" green="0.13017362356185913" blue="0.054226450622081757" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="system" weight="black" pointSize="9"/>
                                     <connections>
-                                        <action selector="startSelected" destination="AgC-eL-Hgc" id="p7L-NL-aSW"/>
+                                        <action selector="ASelected" destination="AgC-eL-Hgc" id="T0i-b6-W0Z"/>
                                     </connections>
                                 </button>
-                                <button width="0.20000000000000001" height="1" alignment="left" id="gEn-fs-8B5">
-                                    <string key="title">
-SL</string>
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <button width="96" height="1" alignment="left" title="B" id="5MX-Ax-alr">
+                                    <color key="titleColor" red="0.21454858779907227" green="0.13017362356185913" blue="0.054226450622081757" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="font" type="system" weight="black" pointSize="10"/>
-                                    <connections>
-                                        <action selector="selectSelected" destination="AgC-eL-Hgc" id="J5E-nW-oyX"/>
-                                    </connections>
-                                </button>
-                                <button width="0.5" height="43" alignment="left" title="B" id="5MX-Ax-alr">
-                                    <fontDescription key="font" type="system" weight="black" pointSize="20"/>
                                     <connections>
                                         <action selector="BSelected" destination="AgC-eL-Hgc" id="Fot-BT-0Rl"/>
                                     </connections>
@@ -64,45 +64,32 @@ SL</string>
                             </items>
                         </group>
                     </items>
-                    <menu key="menu" id="nn1-cq-hAR">
+                    <menu key="menu" id="4Pv-Nb-hkv">
                         <items>
-                            <menuItem title="Load" icon="resume" id="BpF-sx-863">
-                                <connections>
-                                    <action selector="loadSelected" destination="AgC-eL-Hgc" id="fsa-bi-ocK"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Save" icon="accept" id="pIq-Uh-5hH">
-                                <connections>
-                                    <action selector="saveSelected" destination="AgC-eL-Hgc" id="T4K-MP-SxT"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Reset" icon="repeat" id="JZ8-a9-1cp">
-                                <connections>
-                                    <action selector="resetSelected" destination="AgC-eL-Hgc" id="ZNK-Kz-hgl"/>
-                                </connections>
-                            </menuItem>
+                            <menuItem title="Menu Item" id="3Pc-Rn-66z"/>
                         </items>
                     </menu>
+                    <color key="backgroundColor" red="0.19019213318824768" green="0.41485846042633057" blue="0.086070127785205841" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
-                        <outlet property="ALabel" destination="e8e-tB-5Zv" id="gmP-Xj-kCc"/>
-                        <outlet property="DPadLabel" destination="cVh-ps-Gkz" id="oed-H8-hIw"/>
                         <outlet property="scene" destination="ELq-fe-WSa" id="8Pd-b5-QQL"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="325.17948717948718" y="267.64102564102564"/>
+            <point key="canvasLocation" x="324.47826086956519" y="270.9375"/>
         </scene>
         <!--Library Controller-->
         <scene sceneID="hYo-3W-FtS">
             <objects>
-                <controller id="7hZ-R3-GZe" customClass="LibraryController" customModule="giovanni_WatchKit_Extension">
+                <controller fullScreen="YES" id="7hZ-R3-GZe" customClass="LibraryController" customModule="giovanni_WatchKit_Extension">
                     <items>
                         <table alignment="left" id="Iw1-TF-n5i">
                             <items>
                                 <tableRow identifier="Header" selectable="NO" id="VmW-Kc-a7M">
                                     <group key="rootItem" width="1" height="45" alignment="left" spacing="2" id="UUj-Ke-CHi">
                                         <items>
-                                            <imageView width="1" height="1" alignment="left" image="gio" contentMode="scaleAspectFit" id="XQp-ay-rpc"/>
+                                            <imageView width="0.5" height="1" alignment="left" image="gio" contentMode="scaleAspectFit" id="XQp-ay-rpc">
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </imageView>
                                         </items>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </group>
@@ -111,13 +98,14 @@ SL</string>
                                     <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="bli-7y-Vdh">
                                         <items>
                                             <button width="1" alignment="left" title=" Refresh" id="Iva-T0-34J">
-                                                <fontDescription key="font" type="system" pointSize="17"/>
+                                                <color key="titleColor" red="0.21454858779907227" green="0.13017362356185913" blue="0.054226450622081757" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="font" type="system" pointSize="13"/>
                                                 <connections>
                                                     <action selector="refreshSelected" destination="fwh-2v-kWc" id="nUw-BO-XLM"/>
                                                 </connections>
                                             </button>
-                                            <label width="0.90000000000000002" widthAdjustment="4" alignment="center" text="Loading" textAlignment="center" numberOfLines="0" id="bZ1-on-mww">
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <label width="0.5" widthAdjustment="5" alignment="center" text="Loading" textAlignment="center" numberOfLines="0" id="bZ1-on-mww">
+                                                <color key="textColor" red="0.21454858779907227" green="0.13017362356185913" blue="0.054226450622081757" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="font" style="UICTFontTextStyleBody"/>
                                             </label>
                                         </items>
@@ -130,9 +118,10 @@ SL</string>
                                     </connections>
                                 </tableRow>
                                 <tableRow identifier="GameRow" id="fFq-Ha-OSs" customClass="GameRow" customModule="giovanni_WatchKit_Extension">
-                                    <group key="rootItem" width="1" alignment="left" id="PWx-CH-ukM">
+                                    <group key="rootItem" width="1" alignment="left" spacing="1" id="PWx-CH-ukM">
                                         <items>
                                             <label width="1" height="1" alignment="left" text="Pokemon - Yellow Version (UE)" textAlignment="center" numberOfLines="0" id="NDJ-HY-IOo">
+                                                <color key="textColor" red="0.21454858779907227" green="0.13017362356185913" blue="0.054226450622081757" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="font" type="system" pointSize="10"/>
                                             </label>
                                         </items>
@@ -143,13 +132,22 @@ SL</string>
                                     </connections>
                                 </tableRow>
                             </items>
+                            <color key="backgroundColor" red="0.19019213318824768" green="0.41485846042633057" blue="0.086070127785205841" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </table>
+                        <label height="54" alignment="left" textAlignment="center" numberOfLines="4" id="mpV-f1-VnE">
+                            <string key="text" base64-UTF8="YES">
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIA
+</string>
+                        </label>
                         <label height="58" alignment="center" textAlignment="center" numberOfLines="5" minimumScaleFactor="0.10000000000000001" id="QY8-U0-6NB">
                             <string key="text">Created by gabrieloc, modified by AppleWatchDevCC to work on modern watchOS versions. Report any bugs to corey.cusick2003@gmail.com, please allow 72 hours for a response.</string>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="font" type="system" pointSize="9"/>
+                            <color key="textColor" red="0.21454858779907227" green="0.13017362356185913" blue="0.054226450622081757" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" type="system" pointSize="8"/>
                         </label>
                     </items>
+                    <color key="backgroundColor" red="0.19019213318824768" green="0.41485846042633057" blue="0.086070127785205841" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <outlet property="table" destination="Iw1-TF-n5i" id="sw8-ie-RA9"/>
                     </connections>
@@ -159,6 +157,6 @@ SL</string>
         </scene>
     </scenes>
     <resources>
-        <image name="gio" width="1280" height="329"/>
+        <image name="gio" width="1280" height="225"/>
     </resources>
 </document>

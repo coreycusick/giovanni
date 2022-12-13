@@ -47,10 +47,17 @@ class GameplayController: WKInterfaceController {
 
 	var panOrigin: CGPoint?
 	let deadzone: CGFloat = 1
-
-	@IBAction func tapUpdated(_ sender: WKTapGestureRecognizer) {
-		pressInputOnce(.A)
-	}
+    
+    private var queue: DispatchQueue {
+        return DispatchQueue(label: "com.coreyc.giovanni")
+    }
+    @IBAction func tapUpdated(_ sender: WKLongPressGestureRecognizer) {
+        pressInputOnce(.start)
+        pressInputOnce(.up)
+        pressInputOnce(.select)
+        pressInputOnce(.A)
+        pressInputOnce(.B)
+    }
 
 	@IBAction func panUpdated(_ sender: WKPanGestureRecognizer) {
 
@@ -84,8 +91,9 @@ class GameplayController: WKInterfaceController {
 	@IBAction func startSelected()	{ pressInputOnce(.start) }
 	@IBAction func selectSelected() { pressInputOnce(.select) }
 	@IBAction func BSelected()		{ pressInputOnce(.B) }
-
-	@IBAction func loadSelected() {
+    @IBAction func ASelected()        { pressInputOnce(.A) }
+    
+    @IBAction func loadSelected() {
 		guard let core = loader.core else { return }
 		core.runWhilePaused({ core.load(fromSlot: 0) })
 	}
@@ -107,7 +115,7 @@ class GameplayController: WKInterfaceController {
 	func updateDirectionalInputs() {
 
 		guard let core = loader.core else {
-			DPadLabel.setText(GameInput(rawValue: 0).displaySymbol)
+			//DPadLabel.setText(GameInput(rawValue: 0).displaySymbol)
 			return
 		}
 
@@ -119,23 +127,10 @@ class GameplayController: WKInterfaceController {
 		//		dpadImage.setImage(image)
 
 		// This is a far cheaper alternative
-		let text = directionInput.displaySymbol
-		DPadLabel.setText(text)
+		
+		//DPadLabel.setText(text)
 	}
 
-	func inputImage(for input: GameInput) -> UIImage? {
-
-		let key = NSString(string: "Dpad-\(input.rawValue)")
-		if let image = imageCache.object(forKey: key) {
-			return image
-		}
-
-		guard let image = UIImage.dpadImage(for: input) else {
-			return nil
-		}
-		imageCache.setObject(image, forKey: key)
-		return image
-	}
 
 	let loader = GameLoader.shared
 
@@ -241,8 +236,7 @@ class GameplayController: WKInterfaceController {
 		if input.isDirectional {
 			updateDirectionalInputs()
 		} else if input == .A {
-			let alpha: CGFloat = selected ? 1.0 : 0.5
-			ALabel.setAlpha(alpha)
+			
 		}
 	}
 

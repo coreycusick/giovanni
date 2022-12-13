@@ -35,7 +35,13 @@ import Foundation
 
 extension String {
 	var isValidROMExtension: Bool {
-		return ["gb", "gbc", "zip"].contains(self)
+        var beta = false;
+		
+        if(beta == true) {
+            return ["gb", "gbc", "nes","snes", "zip"].contains(self)
+        } else {
+            return ["gb", "gbc", "zip"].contains(self)
+        }
 	}
 }
 
