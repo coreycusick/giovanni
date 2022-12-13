@@ -110,7 +110,6 @@ public:
 		if (!gameCoreThread) {
 			return;
 		}
-gb.setDmgPaletteColor(<#int palNum#>, <#int colorNum#>, <#unsigned long rgb32#>)
 		size_t samples = 1;
 
 		while (gb.runFor((gambatte::uint_least32_t *)videoBuffer, kScreenWidth,
